@@ -1,0 +1,23 @@
+{
+  "name": "three-sketch",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
+    "svelte": "^3.44.0",
+    "vite": "^2.9.5"
+  },
+  "dependencies": {
+    "noisejs": "^2.1.0",
+    "p5": "^1.4.1",
+    "ramda": "^0.28.0",
+    "svelte-routing": "^1.6.0",
+    "three": "^0.139.2"
+  }
+}
