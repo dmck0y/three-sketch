@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { Scene } from "three";
 import { mergeDeepRight } from 'ramda';
 
 let scene, camera, renderer;
@@ -38,8 +39,12 @@ export const defaultSettings: Partial<SketchSettings> = {
   }
 };
 
-
-export function createThree(settings, sketch) {
+interface sketchArgs {
+  THREE: any;
+  scene: Scene;
+}
+type sketchCallback = (sketchArgs) => void;
+export function createThree(settings: Partial<SketchSettings>, sketch: sketchCallback): void {
   const mergedSettings = mergeDeepRight(defaultSettings, settings);
   const {width, height, antialias, color} = mergedSettings;
   const {fov, nearClip, farClip, cameraPosition, cameraType } = mergedSettings.cameraSettings;
@@ -92,4 +97,4 @@ export function createThree(settings, sketch) {
     .then(main)
     .then(() => sketch({THREE, scene}))
     .then(render);
-}
+};
